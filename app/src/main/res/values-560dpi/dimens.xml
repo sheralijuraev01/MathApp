@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    //splash activity
+    <dimen name="splash_icon_size">120dp</dimen>
+    <dimen name="splash_title_ts">40sp</dimen>
+    <dimen name="splash_comp_name_ts">16sp</dimen>
+
+    //menu activity
+    <dimen name="menu_title_ts">24sp</dimen>
+    <dimen name="menu_title_padding_ver">10dp</dimen>
+    <dimen name="menu_profile_margin">13dp</dimen>
+    <dimen name="menu_profile_padding">10dp</dimen>
+    <dimen name="menu_profile_icon_size">75dp</dimen>
+    <dimen name="menu_profile_ts">20sp</dimen>
+    <dimen name="menu_profile_score_icon_size">40dp</dimen>
+    <dimen name="menu_profile_next_icon_size">40dp</dimen>
+    <dimen name="menu_grid_height">450dp</dimen>
+    <dimen name="menu_grid_mar_bottom">16dp</dimen>
+    <dimen name="menu_grid_padding">16dp</dimen>
+    <dimen name="menu_grid_child_mr_bottom">16dp</dimen>
+    <dimen name="menu_grid_child_icon_size">100dp</dimen>
+    <dimen name="menu_grid_child_margin">16dp</dimen>
+    <dimen name="menu_grid_child_title_ts">22sp</dimen>
+    <dimen name="menu_grid_child_ts">20sp</dimen>
+
+    //main activity
+    <dimen name="main_back_press_btn_size">30dp</dimen>
+    <dimen name="main_level_ts">22sp</dimen>
+    <dimen name="main_toolbar_padding_ver">10dp</dimen>
+    <dimen name="main_level_icon_size">35dp</dimen>
+    <dimen name="main_menu_layout_height">62dp</dimen>
+    <dimen name="main_standard_margin">16dp</dimen>
+    <dimen name="main_high_score_padding_ver">14dp</dimen>
+    <dimen name="main_high_score_padding_hor">3dp</dimen>
+    <dimen name="main_menu_standard_padding">7dp</dimen>
+    <dimen name="main_menu_spinner_icon_padding_ver">11dp</dimen>
+    <dimen name="main_menu_spinner_height">50dp</dimen>
+    <dimen name="main_menu_ts">20sp</dimen>
+    <dimen name="main_menu_icons_size">35dp</dimen>
+    <dimen name="main_questions_ts">30sp</dimen>
+    <dimen name="main_questions_padding_ver">8dp</dimen>
+    <dimen name="main_grid_height">300dp</dimen>
+    <dimen name="main_options_ts">30sp</dimen>
+    <dimen name="main_answer_status_ts">25sp</dimen>
+
+    //setting activity
+    <dimen name="setting_toolbar_btn_size">30dp</dimen>
+    <dimen name="setting_standard_margin">16dp</dimen>
+    <dimen name="setting_user_icon_size">100dp</dimen>
+    <dimen name="setting_icon_margin_top">40dp</dimen>
+    <dimen name="setting_gamer_name_ts">25sp</dimen>
+    <dimen name="setting_gamer_name_mt">8dp</dimen>
+    <dimen name="setting_best_score_ts">27sp</dimen>
+    <dimen name="setting_best_score_mt">10dp</dimen>
+    <dimen name="setting_standard_ts">20sp</dimen>
+    <dimen name="setting_score_status_margin_start">35dp</dimen>
+    
+    
+    // edit name layout
+    <dimen name="edit_title_mt">20dp</dimen>
+    <dimen name="edit_title_ts">24sp</dimen>
+    <dimen name="edit_standard_ts">18sp</dimen>
+    <dimen name="edit_standard_margin">30dp</dimen>
+    <dimen name="edit_text_margin_hor">20dp</dimen>
+    <dimen name="edit_text_height">48dp</dimen>
+    <dimen name="edit_text_mt">10dp</dimen>
+    <dimen name="edit_logo_icon_size">80dp</dimen>
+    <dimen name="edit_logo_margin">16dp</dimen>
+
+    //spinner item
+    <dimen name="spinner_item_ts">20sp</dimen>
+    <dimen name="spinner_standard_margin">2dp</dimen>
+    <dimen name="spinner_padding">5dp</dimen>
+
+    //game over layout
+    <dimen name="over_standard_margin">16dp</dimen>
+    <dimen name="over_title_ts">30sp</dimen>
+    <dimen name="over_lottie_height">150dp</dimen>
+    <dimen name="over_lottie_margin_hor">60dp</dimen>
+    <dimen name="over_lottie_margin_ver">5dp</dimen>
+    <dimen name="over_desc_ts">20sp</dimen>
+    <dimen name="over_icon_size">50dp</dimen>
+    <dimen name="over_icon_margin_hor">20dp</dimen>
+    <dimen name="over_desc_margin_hor">5dp</dimen>
+
+    // high score list
+    <dimen name="list_height">50dp</dimen>
+    <dimen name="list_ts">18sp</dimen>
+    <dimen name="list_standard_margin">8dp</dimen>
+    <dimen name="list_width">14dp</dimen>
+
+    
+
+</resources>

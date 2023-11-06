@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Math app</string>
+    <string name="selected_item">Selected item:</string>
+    <string name="spinner_title">Time</string>
+    <string name="select_a_category">Select a category</string>
+    <string name="com_name">Sher Software Mobile Group</string>
+    <string name="hard_level">Hard level</string>
+    <string name="medium_level">Medium level</string>
+    <string name="easy_level">Easy level</string>
+    <string name="the_best_score">The best score</string>
+    <string-array name="GameTimer">
+        <item>45</item>
+        <item>60</item>
+        <item>90</item>
+
+    </string-array>
+</resources>

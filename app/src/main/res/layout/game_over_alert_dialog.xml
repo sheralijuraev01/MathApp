@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="30dp"
+    android:backgroundTint="@color/white"
+    app:cardCornerRadius="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/info_game"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/over_standard_margin"
+            android:fontFamily="@font/fredokaone_regular"
+            android:text="GOOD"
+            android:textColor="@color/thirdDegree"
+            android:textSize="@dimen/over_title_ts"
+            android:textStyle="bold" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/lottiAnimation"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/over_lottie_height"
+            android:layout_marginHorizontal="@dimen/over_lottie_margin_hor"
+            android:layout_marginVertical="@dimen/over_lottie_margin_ver"
+            app:lottie_autoPlay="true"
+            app:lottie_rawRes="@raw/high_score_n0" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/over_standard_margin"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/level"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/gelasio_mediumitalic"
+                android:gravity="center"
+                android:text="Level"
+                android:textColor="@color/thirdDegree"
+                android:textSize="@dimen/over_desc_ts" />
+
+            <TextView
+                android:id="@+id/questions"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/over_desc_margin_hor"
+                android:layout_weight="1"
+                android:fontFamily="@font/gelasio_mediumitalic"
+                android:gravity="center"
+                android:text="Questions"
+                android:textColor="@color/thirdDegree"
+                android:textSize="@dimen/over_desc_ts" />
+
+            <TextView
+                android:id="@+id/gamer_score"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/gelasio_mediumitalic"
+                android:gravity="center"
+                android:text="Score"
+                android:textColor="@color/thirdDegree"
+                android:textSize="@dimen/over_desc_ts" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/over_standard_margin"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/restart"
+                android:layout_width="@dimen/over_icon_size"
+                android:layout_height="@dimen/over_icon_size"
+                android:layout_marginHorizontal="@dimen/over_icon_margin_hor"
+                android:layout_marginBottom="@dimen/over_standard_margin"
+                android:padding="3dp"
+                android:src="@drawable/reload" />
+
+            <ImageView
+                android:id="@+id/home"
+                android:layout_width="@dimen/over_icon_size"
+                android:layout_height="@dimen/over_icon_size"
+                android:layout_marginHorizontal="@dimen/over_icon_margin_hor"
+                android:layout_marginBottom="@dimen/over_standard_margin"
+                android:src="@drawable/home" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

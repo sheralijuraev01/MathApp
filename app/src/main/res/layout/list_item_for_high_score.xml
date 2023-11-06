@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/thirdDegree" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/list_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/placeScore"
+            android:layout_width="@dimen/list_width"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/list_standard_margin"
+            android:layout_marginEnd="@dimen/list_standard_margin"
+            android:gravity="center_horizontal"
+            android:text="1"
+            android:textColor="@color/thirdDegree"
+            android:textSize="@dimen/list_ts"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/thirdDegree" />
+
+        <TextView
+            android:id="@+id/levelUp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="Medium"
+            android:textColor="@color/thirdDegree"
+            android:textSize="@dimen/list_ts"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/thirdDegree" />
+
+        <TextView
+            android:id="@+id/levelOfTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="45"
+            android:textColor="@color/thirdDegree"
+            android:textSize="@dimen/list_ts"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="wrap_content"
+            android:background="@color/thirdDegree" />
+
+        <TextView
+            android:id="@+id/levelOfScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="15"
+            android:textColor="@color/thirdDegree"
+            android:textSize="@dimen/list_ts"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/thirdDegree" />
+
+
+</LinearLayout>
