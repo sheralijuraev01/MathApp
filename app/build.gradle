@@ -1,19 +1,19 @@
-
-
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id ("kotlin-kapt")
+    id ("dagger.hilt.android.plugin")
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
-    defaultConfig {1
+    defaultConfig {
         applicationId "com.sherali.mathapp"
         minSdk 21
-        targetSdk 32
-        versionCode 1
-        versionName "1.0"
+        targetSdk 33
+        versionCode 2
+        versionName "1.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -50,4 +50,23 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
+
+    implementation("androidx.room:room-runtime:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+    androidTestImplementation ("androidx.room:room-testing:2.5.2")
+
+
+    // dagger hilt
+    implementation("com.google.dagger:hilt-android:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
+
+
+    //viewmodel
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
+
+    //     navigation component
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
 }

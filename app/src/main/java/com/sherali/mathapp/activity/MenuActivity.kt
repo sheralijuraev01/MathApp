@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.sherali.mathapp.activity.MainActivity
 import com.sherali.mathapp.databinding.ActivityMenuBinding
 import com.sherali.mathapp.util.Functions
 
