@@ -24,7 +24,7 @@ class SharedImp (context: Context) : SharedPref {
     }
 
     override suspend fun getIconIndex(): Int {
-        return sharedPreference.getInt(USER_ICON, -1)
+        return sharedPreference.getInt(USER_ICON, 4)
     }
 
     override suspend fun saveLogin(status: Boolean) {

@@ -13,6 +13,12 @@ interface AppDao {
     @Query("SELECT * FROM SCORE_TABLE ORDER BY score DESC")
     suspend fun getAllScore(): List<ScoreEntity>
 
+    @Query("SELECT * FROM SCORE_TABLE WHERE levelKey = :key ")
+    suspend fun getScore(key:String): ScoreEntity
+
     @Query("SELECT MAX(score) FROM SCORE_TABLE WHERE category = :category")
     suspend fun getMaxByLevelKey(category: String): Int
+
+    @Query("SELECT MAX(score) FROM SCORE_TABLE")
+    suspend fun getMaxScore(): Int
 }

@@ -21,7 +21,9 @@ class RepositoryImp @Inject constructor(
     override suspend fun saveScore(scoreEntity: ScoreEntity) = appDao.saveScore(scoreEntity)
 
     override suspend fun getAllScore(): List<ScoreEntity> = appDao.getAllScore()
+    override suspend fun getScore(key:String): ScoreEntity=appDao.getScore(key)
 
     override suspend fun getMaxByCategory(category: String): Int = appDao.getMaxByLevelKey(category)
+    override suspend fun getMaxScore(): Int = appDao.getMaxScore()
 
 }

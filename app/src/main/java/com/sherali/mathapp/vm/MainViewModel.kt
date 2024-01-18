@@ -49,10 +49,28 @@ class MainViewModel @Inject constructor(private val repository: Repository) : Vi
         return result
     }
 
+    fun getScore(key:String): MutableLiveData< ScoreEntity?> {
+        val result: MutableLiveData<ScoreEntity?> = MutableLiveData(null)
+        viewModelScope.launch {
+            result.postValue(repository.getScore(key=key))
+        }
+
+        return result
+    }
+
     fun getMaxCategory(category: String): MutableLiveData<Int?> {
         val maxScore: MutableLiveData<Int?> = MutableLiveData(null)
         viewModelScope.launch {
             maxScore.postValue(repository.getMaxByCategory(category))
+        }
+
+        return maxScore
+    }
+
+    fun getMaxScore(): MutableLiveData<Int?> {
+        val maxScore: MutableLiveData<Int?> = MutableLiveData(null)
+        viewModelScope.launch {
+            maxScore.postValue(repository.getMaxScore())
         }
 
         return maxScore

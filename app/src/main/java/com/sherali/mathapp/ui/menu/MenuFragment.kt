@@ -1,60 +1,130 @@
 package com.sherali.mathapp.ui.menu
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnClickListener
 import android.view.ViewGroup
+import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.sherali.mathapp.R
+import com.sherali.mathapp.databinding.FragmentMenuBinding
+import com.sherali.mathapp.util.Constants.EASY
+import com.sherali.mathapp.util.Constants.HARD
+import com.sherali.mathapp.util.Constants.MEDIUM
+import com.sherali.mathapp.vm.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [MenuFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class MenuFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+@AndroidEntryPoint
+class MenuFragment : Fragment(), OnClickListener {
+    private var _binding: FragmentMenuBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false)
+        _binding = FragmentMenuBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MenuFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MenuFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        mainViewModel.getUserData().observe(requireActivity()) {
+            if (it != null) {
+                initGamerInfo(it.name, it.index)
             }
+        }
+
+        //menyuga kirilganda yoki qaytilganda rekordni yangilash
+
+        mainViewModel.getMaxScore().observe(requireActivity()) {
+            if (it != null) {
+                binding.gamerHighScore.text = it.toString()
+            }
+
+        }
+
+        mainViewModel.getMaxCategory(EASY).observe(requireActivity()) {
+            if (it != null) {
+                binding.easyBestScory.text = it.toString()
+            }
+
+        }
+
+        mainViewModel.getMaxCategory(MEDIUM).observe(requireActivity()) {
+            if (it != null) {
+                binding.mediumBestScory.text = it.toString()
+            }
+
+        }
+
+        mainViewModel.getMaxCategory(HARD).observe(requireActivity()) {
+            if (it != null) {
+                binding.hardBestScory.text = it.toString()
+            }
+
+        }
+
+
     }
+
+
+    private fun initGamerInfo(name: String, index: Int) {
+        val icons = arrayOf(
+            R.drawable.gamer1,
+            R.drawable.gamer2,
+            R.drawable.gamer3,
+            R.drawable.gamer4,
+            R.drawable.user,
+        )
+
+
+        binding.profileImage.setImageResource(icons[index])
+        binding.gamerName.text = gamerNameStatus(name).trim()
+
+
+    }
+
+    private fun gamerNameStatus(name: String): String {
+        return if (name.length < 9) {
+            name
+        } else name.substring(0, 5) + "..."
+
+    }
+
+
+    override fun onClick(v: View?) {
+        val cardView = view as CardView
+        val level = cardView.tag.toString()
+        /**
+         * agar tag 1 oson
+         * agar tag 2 o'rta
+         * agar tag 3 qiyin
+         * agar tag 5 bo'lsa bu profileSetting oynasiga o'tadi
+         * */
+        if (level.toInt() == 5) {
+            findNavController().navigate(R.id.action_menuFragment_to_settingFragment)
+
+        } else {
+            val bundle = Bundle()
+            bundle.putString("level", level)
+
+            findNavController().navigate(R.id.action_menuFragment_to_gameFragment, bundle)
+        }
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
 }

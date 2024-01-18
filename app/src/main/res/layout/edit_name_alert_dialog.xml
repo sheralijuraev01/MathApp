@@ -64,26 +64,27 @@
             android:rowCount="2">
 
             <ImageView
+                android:id="@+id/iconOne"
                 android:layout_width="@dimen/edit_logo_icon_size"
                 android:layout_height="@dimen/edit_logo_icon_size"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:layout_margin="@dimen/edit_logo_margin"
 
-                android:onClick="onclickImageProfile"
                 android:padding="3dp"
                 android:src="@drawable/gamer1"
                 android:tag="0"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
+                android:id="@+id/iconTwo"
+
                 android:layout_width="@dimen/edit_logo_icon_size"
                 android:layout_height="@dimen/edit_logo_icon_size"
                 android:layout_row="0"
                 android:layout_column="1"
                 android:layout_margin="@dimen/edit_logo_margin"
 
-                android:onClick="onclickImageProfile"
                 android:paddingStart="2dp"
                 android:paddingTop="0dp"
                 android:paddingEnd="1dp"
@@ -93,26 +94,28 @@
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
+                android:id="@+id/iconThree"
+
                 android:layout_width="@dimen/edit_logo_icon_size"
                 android:layout_height="@dimen/edit_logo_icon_size"
                 android:layout_row="1"
                 android:layout_column="0"
                 android:layout_margin="@dimen/edit_logo_margin"
 
-                android:onClick="onclickImageProfile"
                 android:padding="4dp"
                 android:src="@drawable/gamer3"
                 android:tag="2"
                 tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
+                android:id="@+id/iconFour"
+
                 android:layout_width="@dimen/edit_logo_icon_size"
                 android:layout_height="@dimen/edit_logo_icon_size"
                 android:layout_row="1"
                 android:layout_column="1"
                 android:layout_margin="@dimen/edit_logo_margin"
 
-                android:onClick="onclickImageProfile"
                 android:paddingStart="2dp"
                 android:paddingTop="0dp"
                 android:paddingEnd="2dp"

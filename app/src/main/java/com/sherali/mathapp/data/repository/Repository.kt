@@ -15,7 +15,10 @@ interface Repository {
     suspend fun saveScore(scoreEntity: ScoreEntity)
 
     suspend fun getAllScore(): List<ScoreEntity>
+    suspend fun getScore(key:String): ScoreEntity
 
     suspend fun getMaxByCategory(category: String): Int
+
+    suspend fun getMaxScore():Int
 
 }
