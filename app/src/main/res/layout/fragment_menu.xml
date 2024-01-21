@@ -181,7 +181,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardSport"
+            android:id="@+id/cardMedium"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_row="1"
@@ -251,7 +251,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cardMusic"
+            android:id="@+id/cardHard"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_row="2"

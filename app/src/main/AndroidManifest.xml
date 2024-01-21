@@ -13,9 +13,7 @@
         android:name=".app.MyApp"
         android:theme="@style/Theme.MathApp"
         tools:targetApi="31">
-        <activity
-            android:name="com.sherali.mathapp.ProfileSettingActivity"
-            android:exported="false" />
+
 
         <activity
             android:name="com.sherali.mathapp.MainActivity"

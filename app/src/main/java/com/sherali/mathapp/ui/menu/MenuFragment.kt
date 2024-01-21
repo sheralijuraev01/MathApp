@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnClickListener
 import android.view.ViewGroup
-import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -19,10 +18,9 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class MenuFragment : Fragment(), OnClickListener {
+class MenuFragment : Fragment()  {
     private var _binding: FragmentMenuBinding? = null
     private val binding get() = _binding!!
-
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreateView(
@@ -73,10 +71,20 @@ class MenuFragment : Fragment(), OnClickListener {
 
         }
 
+        binding.profile.setOnClickListener{
+            findNavController().navigate(R.id.action_menuFragment_to_settingFragment)
+        }
+        binding.cardEasy.setOnClickListener{
+            navigateFragment("1")
+        }
+        binding.cardMedium.setOnClickListener {
+            navigateFragment("2")
 
+        }
+        binding.cardHard.setOnClickListener{
+            navigateFragment("3")
+        }
     }
-
-
     private fun initGamerInfo(name: String, index: Int) {
         val icons = arrayOf(
             R.drawable.gamer1,
@@ -86,11 +94,8 @@ class MenuFragment : Fragment(), OnClickListener {
             R.drawable.user,
         )
 
-
         binding.profileImage.setImageResource(icons[index])
         binding.gamerName.text = gamerNameStatus(name).trim()
-
-
     }
 
     private fun gamerNameStatus(name: String): String {
@@ -99,29 +104,11 @@ class MenuFragment : Fragment(), OnClickListener {
         } else name.substring(0, 5) + "..."
 
     }
-
-
-    override fun onClick(v: View?) {
-        val cardView = view as CardView
-        val level = cardView.tag.toString()
-        /**
-         * agar tag 1 oson
-         * agar tag 2 o'rta
-         * agar tag 3 qiyin
-         * agar tag 5 bo'lsa bu profileSetting oynasiga o'tadi
-         * */
-        if (level.toInt() == 5) {
-            findNavController().navigate(R.id.action_menuFragment_to_settingFragment)
-
-        } else {
-            val bundle = Bundle()
-            bundle.putString("level", level)
-
-            findNavController().navigate(R.id.action_menuFragment_to_gameFragment, bundle)
-        }
-
+    private fun navigateFragment(level: String) {
+        val bundle = Bundle()
+        bundle.putString("level", level)
+        findNavController().navigate(R.id.action_menuFragment_to_gameFragment, bundle)
     }
-
     override fun onDestroy() {
         super.onDestroy()
         _binding = null

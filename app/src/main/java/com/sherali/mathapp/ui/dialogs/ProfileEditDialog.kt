@@ -9,14 +9,13 @@ import com.sherali.mathapp.R
 import com.sherali.mathapp.databinding.EditNameAlertDialogBinding
 import com.sherali.mathapp.util.Functions.Companion.checkNameStatus
 
+
+
 class ProfileEditDialog(
     context: Context,
     name: String,
     index: Int,
-    var newName: (String) -> Unit,
-    var newIndex: (Int) -> Unit,
-    var editStatus: (Boolean) -> Unit,
-    var message: (String) -> Unit
+    callbacks: (newName: String,newIndex: Int,editStatus: Boolean,message: String)->Unit
 ) : BaseAlertDialog(context), OnClickListener {
     private val binding = EditNameAlertDialogBinding.inflate(LayoutInflater.from(context))
     private var gamer = name
@@ -26,8 +25,6 @@ class ProfileEditDialog(
     init {
 
         binding.playerName.setText(gamer)
-
-
         binding.iconOne.setOnClickListener(this)
         binding.iconTwo.setOnClickListener(this)
         binding.iconThree.setOnClickListener(this)
@@ -40,20 +37,18 @@ class ProfileEditDialog(
             gamer = binding.playerName.text.toString().trim()
 
             if (checkNameStatus(gamer, iconIndex) == "") {
-                editStatus(true)
-                newName(gamer)
-                newIndex(iconIndex)
+                callbacks(gamer,iconIndex,true,"")
+
                 this.dismiss()
             } else {
-                editStatus(false)
-                message(checkNameStatus(gamer, iconIndex))
+                callbacks(gamer,iconIndex,false,checkNameStatus(gamer, iconIndex))
                 this.dismiss()
             }
         }
 
         //cancel bosilganda   o'zini default icon va ismini oladi
         binding.cancel.setOnClickListener {
-            editStatus(true)
+            callbacks(gamer,iconIndex,true,"")
             this.dismiss()
 
         }

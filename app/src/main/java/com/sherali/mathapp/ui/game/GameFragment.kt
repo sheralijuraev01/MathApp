@@ -9,6 +9,7 @@ import android.view.View.OnClickListener
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -53,7 +54,8 @@ class GameFragment : Fragment(), OnClickListener {
     private val option: MutableList<Int> = ArrayList()
     private var highScore = 0
     private var inCorrectAnswer: Int = 0
-    private lateinit var countDownTimer: CountDownTimer
+    private   var timerIndicator: CountDownTimer?=null
+    private   var timerAnswer: CountDownTimer?=null
     private var level: String = ""
     private var currentLevel = ""
     private var progressTimeCounter = (timerChoose / 1000).toInt()
@@ -87,8 +89,7 @@ class GameFragment : Fragment(), OnClickListener {
 
         // orqa tugma bosilishi
         binding.backButton.setOnClickListener {
-//            startActivity(Intent(this, MenuActivity::class.java))
-//            finish()
+            findNavController().popBackStack()
         }
 
         binding.option1.setOnClickListener(this)
@@ -139,7 +140,7 @@ class GameFragment : Fragment(), OnClickListener {
     private fun startTime(timer: Long) {
 
         binding.proggresBar.max = progressTimeCounter
-        countDownTimer = object : CountDownTimer((timer + 100).toLong(), 1000) {
+        timerIndicator = object : CountDownTimer((timer + 100).toLong(), 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 progressTimeCounter--
                 binding.proggresBar.progress = progressTimeCounter
@@ -157,7 +158,7 @@ class GameFragment : Fragment(), OnClickListener {
     // variant tanlanganda javob to'gri yoki xato ekanligini aniqlab beruvchi funksiya
 
     override fun onClick(v: View?) {
-        if (view?.tag.toString() == answerLocation.toString()) {
+        if (v?.tag.toString() == answerLocation.toString()) {
             score++
             answerToast(true)
             //agar o'yinchini bali rekordan katta bo'lsa o'yin oynada rekorni o'zgartirish
@@ -180,16 +181,16 @@ class GameFragment : Fragment(), OnClickListener {
     // javob to'g'ri yoki xatoligini bildirib turuvchi funksiya
     private fun answerToast(isCorrect: Boolean) {
 
-        object : CountDownTimer(700, 1000) {
+        timerAnswer = object : CountDownTimer(700, 1000) {
             @SuppressLint("ResourceAsColor")
             override fun onTick(millisUntilFinished: Long) {
                 binding.answerCondition.visibility = View.VISIBLE
                 if (isCorrect) {
                     binding.answerCondition.text = "Correct"
-                    binding.answerCondition.setTextColor(getResources().getColor(R.color.correct))
+                    binding.answerCondition.setTextColor(resources.getColor(R.color.correct))
                 } else {
                     binding.answerCondition.text = "Wrong"
-                    binding.answerCondition.setTextColor(getResources().getColor(R.color.wrong))
+                    binding.answerCondition.setTextColor(resources.getColor(R.color.wrong))
                 }
             }
 
@@ -219,7 +220,9 @@ class GameFragment : Fragment(), OnClickListener {
             }
         }
 
+
         dialogOver.show()
+
 
     }
 
@@ -266,7 +269,7 @@ class GameFragment : Fragment(), OnClickListener {
                 id: Long
             ) {
                 saveRecord()
-                countDownTimer.cancel()
+                timerIndicator?.cancel()
 
 
                 val choose: String = timer[position]
@@ -370,10 +373,10 @@ class GameFragment : Fragment(), OnClickListener {
 
     private fun observeGetScore(key: String) {
         mainViewModel.getScore(key).observe(requireActivity()) {
-            if (it != null) {
-                highScore = it.score
-                binding.highScore.text = highScore.toString()
-            }
+            highScore = it?.score ?: 0
+
+            binding.highScore.text = highScore.toString()
+
         }
     }
 
@@ -440,32 +443,25 @@ class GameFragment : Fragment(), OnClickListener {
     // Rekorni saqlash funksiyasi
     fun saveRecord() {
         // score rekorddan katta bo'lsagina u share preferences ga saqlaydi
-        if (score >= highScore) {
+        if (score >= highScore && highScore!=0) {
             putHighScore((timerChoose / 1000).toString())
         }
     }
 
 
-    // Rekordni amaldagi levelga yozish
-//    private fun initSaveHighScore() {
-//        val str = getHighScore((timerChoose / 1000).toString())
-//        highScore = if (str != "") {
-//            str.toInt()
-//        } else 0
-//
-//        binding.highScore.text = highScore.toString()
-//    }
+
 
     // pausa bo'lganda rekordni saqlash
     override fun onPause() {
         super.onPause()
         saveRecord()
+        timerAnswer?.cancel()
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
+        timerIndicator?.cancel()
+        timerAnswer?.cancel()
     }
-
-
 }

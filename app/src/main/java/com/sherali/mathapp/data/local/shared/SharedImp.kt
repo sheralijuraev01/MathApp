@@ -5,7 +5,7 @@ import com.sherali.mathapp.util.Constants.MATH_SHARED
 import com.sherali.mathapp.util.Constants.USER_ICON
 import com.sherali.mathapp.util.Constants.USER_LOGIN
 import com.sherali.mathapp.util.Constants.USER_NAME
-import javax.inject.Inject
+
 
 class SharedImp (context: Context) : SharedPref {
 

@@ -31,7 +31,7 @@
         android:layout_below="@id/gamer_icon"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/setting_gamer_name_mt"
-        android:text="Sherali"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="@dimen/setting_gamer_name_ts"
         android:textStyle="bold" />
@@ -58,13 +58,36 @@
         android:textStyle="bold" />
 
     <LinearLayout
+        android:id="@+id/notFoundContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/theBestScroe"
+        android:layout_marginHorizontal="30dp"
+        android:visibility="invisible"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/setting_standard_margin"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="You haven't run the test yet!"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="@dimen/setting_standard_ts"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/listTopItem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/theBestScroe"
         android:layout_marginStart="@dimen/setting_score_status_margin_start"
         android:layout_marginBottom="@dimen/setting_standard_margin"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="visible">
 
         <TextView
             android:layout_width="0dp"
@@ -113,6 +136,7 @@
         android:layout_marginHorizontal="@dimen/setting_standard_margin"
         android:layout_marginBottom="@dimen/setting_standard_margin"
         android:scrollbars="none"
+        android:visibility="visible"
         tools:listitem="@layout/list_item_for_high_score">
 
     </ListView>

@@ -20,9 +20,9 @@ object Constants {
 
     //categories
 
-    const val EASY = "easy"
-    const val MEDIUM = "medium"
-    const val HARD= "hard"
+    const val EASY = "Easy"
+    const val MEDIUM = "Medium"
+    const val HARD= "Hard"
 
     // Shared Pref
     const val MATH_SHARED = "quiz_shared"

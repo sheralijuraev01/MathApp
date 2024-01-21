@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
-import com.sherali.mathapp.HighScore
-import com.sherali.mathapp.R
+ import com.sherali.mathapp.R
+import com.sherali.mathapp.data.local.room.entity.ScoreEntity
 
 
-class HighScoreAdapter(private val context: Context, private val list: MutableList<HighScore>):BaseAdapter (){
+class HighScoreAdapter(private val context: Context, private val list: MutableList<ScoreEntity>):BaseAdapter (){
 
     private val inflater:LayoutInflater=context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     override fun getCount(): Int {
@@ -35,8 +35,8 @@ class HighScoreAdapter(private val context: Context, private val list: MutableLi
         val score=listItem.findViewById<TextView>(R.id.levelOfScore)
 
         placeScore.text=(position+1).toString()
-        level.text=list[position].level
-        time.text=list[position].time.toString()
+        level.text=list[position].levelName
+        time.text=list[position].time
         score.text=list[position].score.toString()
 
         return listItem
